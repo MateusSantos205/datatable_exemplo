@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datatable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body">
+    
+    <div class="container-fluid p-0">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white" href="#">Logo</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active " aria-current="page" href="usuarios.html">Usuários</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="produtos.html">Produtos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="fornecedores.html">Fornecedores</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+    </div> <!-- final container menu -->
+
+    <div class="container border mt-2 rounded">
+        <h3>Gerenciamento de usuários</h3>
+
+        <form action="">
+
+            <div class="row">
+
+                <div class="col">
+                    <label class="form-label" for="nome">Nome</label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                </div>
+
+                <div class="col">
+                    <label class="form-label" for="email">E-mail</label>
+                    <input class="form-control" type="email" name="email" id="email">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <label class="form-label" for="senha">Senha</label>
+                    <input class="form-control" type="password" name="senha" id="senha">
+                </div>
+
+                <div class="col">
+                    <label class="form-label" for="email">Confirmar Senha</label>
+                    <input class="form-control" type="password" name="Confirmar" id="Confirmar">
+                </div>
+
+            </div>
+
+            <button class="btn btn-success mt-2" type="submit">Cadastrar</button>
+
+        </form>
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+<!-- //////////////////////////////// -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<!-- /////////////////////////////// -->
+  </body>
+</html>
