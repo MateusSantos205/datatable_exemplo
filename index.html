@@ -1,134 +1,102 @@
+<!-- pasta assets é criada para armazenar as pastas js, css, img etc. -->
+<!-- pasta backend tudo que tem vinculo com o banco de dados -->
+<!-- arquivos soltos na raiz, é o front end -->
+<!-- Front End = html/css/js _____________- Backend = PHP => Api Restful(JSon)_________Banco = Mysql-->
+
 <!doctype html>
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Datatable</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <!-- importaçao css datatable -->
-  <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exemplo Datatable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- importação CSS DataTable --> 
+    <!-- https://datatables.net/ -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 </head>
-<body">
 
-  <div class="container-fluid p-0">
+<body>
+    <!-- p-0 ajustar menu na tela inteira -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Logo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Usuários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fornecedores.html">Fornecedores</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div><!-- FINAL DO MENU -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active " aria-current="page" href="usuarios.html">Usuários</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="produtos.html">Produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="fornecedores.html">Fornecedores</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <!-- container, borda, espaço do menu, canto arredondado -->
+    <div class="container border border-3 mt-2 rounded">
+
+        <h3>Gerenciamento de Usuários</h3>
+
+        <form id="form-usuarios">
+            <div class="row">
+                <div class="col-md-8">
+                    <label class="form-label" for="nome">Nome</label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label" for="email">E-mail</label>
+                    <input class="form-control" type="text" name="email" id="email">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <label class="form-label" for="senha">Senha</label>
+                    <input class="form-control" type="password" name="senha" id="senha">
+                </div>
+                <div class="col-md">
+                    <label class="form-label" for="confirmar">Confirmar Senha</label>
+                    <input class="form-control" type="password" name="confirmar" id="confirmar">
+                </div>
+            </div>
+            <button class="btn btn-success mt-2" onclick="addUser()" type="button">Cadastrar</button>      
+        </form>
+
+        <!-- Datatable para listagem de dados -->
+        <div class="border rounded mt-4">
+            <table class="table table-striped" id="tabela">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-dados">
+                                        
+                </tbody>
+            </table>
         </div>
-      </div>
-    </nav>
-
-  </div> <!-- final container menu -->
-
-  <div class="container border mt-2 rounded">
-    <h3>Gerenciamento de usuários</h3>
-
-    <form action="">
-
-      <div class="row">
-
-        <div class="col-md">
-          <label class="form-label" for="nome">Nome</label>
-          <input class="form-control" type="text" name="nome" id="nome">
-        </div>
-
-        <div class="col-md">
-          <label class="form-label" for="email">E-mail</label>
-          <input class="form-control" type="email" name="email" id="email">
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-md">
-          <label class="form-label" for="senha">Senha</label>
-          <input class="form-control" type="password" name="senha" id="senha">
-        </div>
-
-        <div class="col-md">
-          <label class="form-label" for="email">Confirmar Senha</label>
-          <input class="form-control" type="password" name="Confirmar" id="Confirmar">
-        </div>
-
-      </div>
-
-      <button class="btn btn-success mt-2" type="submit">Cadastrar</button>
-
-    </form>
-
-    <!-- datatable para listagem de dados -->
-
-    <div class="border-rounded mt-4">
-
-      <table class="table table-dark table-striped"  id="tabela">
-
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Ação</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Mateus Santos</td>
-            <td>mateus@gmail.com</td>
-
-            <td>
-              <button type="button" class="btn btn-sm btn-primary">Alterar</button>
-              <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Renata Aversa</td>
-            <td>renata@gmail.com</td>
-            <td>
-              <button type="button" class="btn btn-sm btn-primary">Alterar</button>
-              <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Thiago Malber</td>
-            <td>thiago@gmail.com</td>
-            <td>
-              <button type="button" class="btn btn-sm btn-primary">Alterar</button>
-              <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-            </td>
-          </tr>
-        </tbody>
-
-      </table>
-
     </div>
 
-  </div>
 
 
 
@@ -140,37 +108,29 @@
 
 
 
-  <!-- //////////////////////////////// -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
 
-  <!-- importaçao jquery cdn -->
-  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
 
-  <!-- script js datatable -->
-  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-  <!-- document.ready define scripts js que serao executados assim que a pagina for carregada, que a pagina estiver "pronta" -->
-  <script>
-    $(document).ready(function () {
-      $('#tabela').DataTable({
-        "language": {url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'}
-      });
-    });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    
+    <!-- Importação JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+    
+    <!-- importação JS Datatable -->
+    <!-- Requisito a importação do Jquery -->
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <!-- document.ready define scripts JS que serão executados assim que a pagina for carregada, que a pagina estiver pronta -->
 
-    const addUser = () =>{
-      // cria a variavel e captura o valor utilizando jquery
-      let nome = $('#nome').val()
-      let email = $('#email').val()
-      let senha = $('#senha').val()
-      let confirmar = ('#confirmar').val()
+    <!-- importar sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    }
+    <!-- // script com funções da pagina, O SCRIPT(js) DA PAGINA SEMPRE PRECISA FICAR POR ULTIMO-->
+    <script src="assets/js/script.js"></script>
+    
 
-  </script>
-
-  </body>
+</body>
 
 </html>
