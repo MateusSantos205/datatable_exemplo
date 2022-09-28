@@ -15,7 +15,7 @@ $comando->execute();
 // cria um array para armazenar a mensagem de erro
 $retorno = array(
     'retorno'=>'ok',
-    'mensagem'=> 'Usuário Removido!'
+    'mensagem'=> 'Usuário Removido com sucesso!'
 );
 
 // cria uma variavel que ira receber o array acima convertido em JSON
