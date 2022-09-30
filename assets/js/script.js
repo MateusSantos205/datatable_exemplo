@@ -68,7 +68,7 @@ const listUser = () =>{
             <tr>
                 <td>${user.nome}</td>
                 <td>${user.email}</td>
-                <td>${user.data_cadastro}</td>
+                <td>${moment(user.data_cadastro).format('DD/MM/YY HH:mm')}</td>
 
                     <td> 
                         <div class="form-check form-switch">
