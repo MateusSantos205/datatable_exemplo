@@ -1,7 +1,8 @@
 <?php
 
 // include do arquivo de conexão
-include 'include/conexao.php';
+
+include 'functions.php';
 
 try{
 
@@ -9,6 +10,12 @@ try{
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmar = $_POST['confirmar'];
+
+    // valida se o campo esta preenchido
+    validaCampoVazio($nome, 'nome');
+    validaCampoVazio($email, 'email');
+    validaCampoVazio($senha, 'senha');
+    validaCampoVazio($confirmar, 'confirmar senha');
 
     if ($senha!= $confirmar){
         // cria um array para armazenar a mensagem de erro/sucesso
@@ -27,40 +34,17 @@ try{
     }
     
         $sql = "INSERT INTO tb_login (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
-    
-        $comando = $conexao->prepare($sql);
 
-        $comando->execute();
-
-        // cria um array para armazenar a mensagem de erro
-        $retorno = array(
-                        'retorno'=>'ok',
-                        'mensagem'=> 'Usuário adicionado!'
-                    );
-
-        // cria uma variavel que ira receber o array acima convertido em JSON
-        $json = json_encode($retorno, JSON_UNESCAPED_UNICODE);
-
-        // retorno em formato JSON
-        echo $json;
+        $msg = "Usuário adicionado com sucesso!";  
+          
+        insertUpdateDelele($sql,$msg);
 
           
 }catch(PDOException $erro){
 
-    // cria um array para armazenar a mensagem de erro
-    $retorno = array(
-                    'retorno'=>'erro',
-                    'mensagem'=>$erro->getMessage()
-                );
-
-    $json = json_encode($retorno, JSON_UNESCAPED_UNICODE);
-
-    echo $json;
+   pdocatch($erro);
 
 }
 
 // fechar a conexão
     $conexao = null;
-
-
-?>

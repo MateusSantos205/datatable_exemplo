@@ -9,6 +9,23 @@
 // FUNÇÃO QUE ADICIONA USUÁRIOS!!!!!!!!!!!!!!!!!!!!!
 
 const addUser = () =>{
+
+    // valida de o nome foi preenchido, usando JQUERY   
+
+    // let nome = $('#nome').val()
+
+    // valida se o nome fooi preenchido, usando JS Vailla
+
+    // let nome = document.getElementById('nome').value 
+    // if(nome == ''){
+    //     Swal.fire({
+    //         icon: 'error',
+    //         title:'Atenção!',
+    //         text: 'Preencha o nome!'
+    //     })
+    //     return
+    // }
+    
     
     // captura todo o formulario e cria um formData
     let form = new FormData($('#form-usuarios')[0])
@@ -32,6 +49,9 @@ const addUser = () =>{
 
         //   limpa os campos caso o retorno tenha sucesso
         // utilização do if ternario, para redução de escrita de código
+
+        result.retorno == 'ok' ? $('#form-usuario')[0].reset() : ''
+
         result.retorno == 'ok' ? listUser(): ''
 
     })
