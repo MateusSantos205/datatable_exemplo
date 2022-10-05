@@ -1,15 +1,18 @@
 <?php
 
+
 // include do arquivo de conexão
 
 include 'functions.php';
 
 try{
+    // define os caracteres que serao removidosdos campos preenchidos no form (replace)
+    $carac = array('(', ')', '-', '.', ' ');
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $cpf = $_POST['cpf'];
+    $telefone = str_replace($carac, "", $_POST['telefone']);
+    $cpf = str_replace($carac, "", $_POST['cpf']);
     $senha = $_POST['senha'];
     $confirmar = $_POST['confirmar'];
 

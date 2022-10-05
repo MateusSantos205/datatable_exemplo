@@ -12,7 +12,7 @@
     <title>Exemplo Datatable</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <!-- importação CSS DataTable --> 
+    <!-- importação CSS DataTable -->
     <!-- https://datatables.net/ -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
@@ -76,7 +76,7 @@
                     <label class="form-label" for="telefone">Telefone</label>
                     <input class="form-control" type="text" name="telefone" id="telefone">
                 </div>
-                
+
                 <div class="col">
                     <label class="form-label" for="cpf">CPF</label>
                     <input class="form-control" type="text" name="cpf" id="cpf">
@@ -93,10 +93,13 @@
                     <input class="form-control" type="password" name="confirmar" id="confirmar">
                 </div>
             </div>
-            <button class="btn btn-success mt-2" onclick="addUser()" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-              </svg> Cadastrar</button>      
+            <button class="btn btn-success mt-2" onclick="addUser()" type="button"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path fill-rule="evenodd"
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg> Cadastrar</button>
         </form>
 
         <!-- Datatable para listagem de dados -->
@@ -118,35 +121,51 @@
                     </tr>
                 </thead>
                 <tbody id="tabela-dados">
-                                        
+
                 </tbody>
             </table>
         </div>
+
+        <!-- ///////////////////////////////////////////////////////////////////////////////////////// -->
+
+        <!-- Modal de edição de usuario -->
+        <div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar dados do usuário</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Dados do usuário</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
 
 
-
-
-
-
-
-
-
-
-    <!-- Importação inputmask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js" integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <!-- Importação bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-    
+
     <!-- Importação JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-        crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- Importação inputmask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"
+        integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- importação JS Datatable -->
     <!-- Requisito a importação do Jquery -->
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -163,7 +182,7 @@
 
     <!-- // script com funções da pagina, O SCRIPT(js) DA PAGINA SEMPRE PRECISA FICAR POR ULTIMO-->
     <script src="assets/js/script.js"></script>
-    
+
 
 </body>
 

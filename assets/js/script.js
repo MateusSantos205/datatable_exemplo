@@ -4,7 +4,10 @@
             // executa a função de listar usuários!!!!!!!!!!
             listUser();
 
-            $('#telefone').inputmask
+            // inputmask - campo telefone
+            $('#telefone').inputmask('(99) 99999-9999')
+            // inputmask - campo cpf
+            $('#cpf').inputmask('999.999.999-99')
 
         });
 
@@ -100,7 +103,7 @@ const listUser = () =>{
                     </td>
                
                 <td>
-                <button type="button" class="btn btn-sm btn-primary" ><i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-pencil-square"></i></button>
                 <button  type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash" onclick="deleteUser(${user.id})"></i></button>
                 </td>
             </tr>
