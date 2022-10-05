@@ -3,6 +3,9 @@
 
             // executa a função de listar usuários!!!!!!!!!!
             listUser();
+
+            $('#telefone').inputmask
+
         });
 
 

@@ -8,12 +8,16 @@ try{
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
     $confirmar = $_POST['confirmar'];
 
     // valida se o campo esta preenchido
     validaCampoVazio($nome, 'nome');
     validaCampoVazio($email, 'email');
+    validaCampoVazio($telefone, 'telefone');
+    validaCampoVazio($cpf, 'cpf');
     validaCampoVazio($senha, 'senha');
     validaCampoVazio($confirmar, 'confirmar senha');
 
@@ -43,7 +47,7 @@ try{
     $senha = sha1($senha); 
     
     
-        $sql = "INSERT INTO tb_login (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+        $sql = "INSERT INTO tb_login (nome, email, telefone, cpf, senha) VALUES ('$nome', '$email', '$telefone', '$cpf', '$senha')";
 
         $msg = "Usuário adicionado com sucesso!";  
           
