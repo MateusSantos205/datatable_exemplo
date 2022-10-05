@@ -17,6 +17,9 @@ try{
     validaCampoVazio($senha, 'senha');
     validaCampoVazio($confirmar, 'confirmar senha');
 
+    // executa a função e verifica se o email já esta cadastrado
+    checkEmailUser($email);
+
     if ($senha!= $confirmar){
         // cria um array para armazenar a mensagem de erro/sucesso
         $retorno = array(
@@ -43,6 +46,7 @@ try{
 }catch(PDOException $erro){
 
    pdocatch($erro);
+
 
 }
 

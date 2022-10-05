@@ -1,5 +1,12 @@
 <?php
 
+// linha de codigo que desabilita warnings e erro do php
+// error_reporting(0);
+
+include_once 'include/conexao.php';
+
+// define que a variavel con ser DE USO GLOBAL
+// global $con;
 
 // Arquivo de funções genericas para que poder ser reutilizadas em outras pags
 
@@ -30,9 +37,8 @@ function validaCampoVazio($campo,$nomeCampo){
 // função generica que executa uma query de adicionar, atualizar e deletar registros
 function insertUpdateDelele($sql,$mensagemretorno){
 
-    include_once 'include/conexao.php';
-
-    $comando = $conexao->prepare($sql);
+    
+    $comando = $GLOBALS['conexao']->prepare($sql);
 
      $comando->execute();
 
@@ -62,4 +68,38 @@ $json = json_encode($retorno, JSON_UNESCAPED_UNICODE);
 echo $json;
 }
 
-?>
+// ///////////////////////
+
+// verifica se o email do usuario já esta cadastrado
+
+function checkEmailUser($email){
+
+
+    $sql = "SELECT email FROM tb_login WHERE email = '$email'";
+
+    $comando = $GLOBALS['conexao']->prepare($sql);
+
+    $comando->execute();
+
+    $validaEmail = $comando -> fetchAll(PDO::FETCH_ASSOC);
+
+    // retornar variavel retorno
+    // quando utilizamos return = será retornado um valor pela função
+    // quando utilizamos echo = é exibido uma informação na tela
+
+    if($validaEmail != null){
+        $retorno = array(
+            'retorno'=>'erro',
+            'mensagem'=> 'E-mail já cadastrado, tente outro e-mail!'
+        );
+
+// cria uma variavel que ira receber o array acima convertido em JSON
+    $json = json_encode($retorno, JSON_UNESCAPED_UNICODE);
+
+// retorno em formato JSON
+    echo $json;
+    exit;
+
+    }
+
+}
