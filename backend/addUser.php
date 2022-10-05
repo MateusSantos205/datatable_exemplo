@@ -35,6 +35,13 @@ try{
         // encerra o script
         exit;
     }
+
+    // criptografa a senha do usuario
+    // alguns algoritimos de criptografar senhas = sha1, md5, password hash php
+
+    $salt = 
+    $senha = sha1($senha); 
+    
     
         $sql = "INSERT INTO tb_login (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
 

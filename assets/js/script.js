@@ -50,7 +50,7 @@ const addUser = () =>{
         //   limpa os campos caso o retorno tenha sucesso
         // utilização do if ternario, para redução de escrita de código
 
-        result.retorno == 'ok' ? $('#form-usuario')[0].reset() : ''
+        result.retorno == 'ok' ? $('#form-usuarios')[0].reset() : ''
 
         result.retorno == 'ok' ? listUser(): ''
 
