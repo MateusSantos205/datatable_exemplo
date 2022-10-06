@@ -4,7 +4,7 @@
             // executa a função de listar usuários!!!!!!!!!!
             listUser();
 
-            // inputmask - campo telefone
+            // inputmask - campo cpf
             $('#telefone').inputmask('(99) 99999-9999')
             // inputmask - campo cpf
             $('#cpf').inputmask('999.999.999-99')
@@ -103,7 +103,7 @@ const listUser = () =>{
                     </td>
                
                 <td>
-                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="listUserID(${user.id})" ><i class="bi bi-pencil-square"></i></button>
                 <button  type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash" onclick="deleteUser(${user.id})"></i></button>
                 </td>
             </tr>
@@ -183,4 +183,61 @@ const deleteUser = (id) => {
 
     });
 
+    
+
+    
+}
+
+// /////////////////////////////////////
+
+const listUserID = (id) =>{
+    // lista os dados do usuario por ID, para alteração de dados
+    // o modal terá que ser exibido dentro do result
+    // .then((result) => {o codigo abaixo ficara aqui} )
+
+    // const modalEditar = new bootstrap.Modal(document.getElementById('modal-edital-usuario))
+
+        const result = fetch('backend/listUserID.php', {
+    
+            method: "POST",
+            body : `id=${id}`,
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded'
+            }
+    
+        })
+        .then((response) => response.json()) // retorna uma promise
+        .then((result) => {
+
+            // preenche os dados dentro do form de editar usuario
+
+            $('#edita-nome').val(result[0].nome)
+            $('#edita-email').val(result[0].email)
+            $('#edita-telefone').val(result[0].telefone)
+            $('#edita-cpf').val(result[0].cpf)
+
+            $('#edita-telefone').inputmask('(99) 99999-9999')
+            $('#edita-cpf').inputmask('999.999.999-99')
+           
+            // exibe o modal apos preencher os dados para edição
+            const modalEditar = new bootstrap.Modal('#modal-editar-usuario')
+
+            modalEditar.show()
+
+        });
+
+
+}
+
+const updateUser = () =>{
+
+    // igual ao adduser
+
+    muda do cadastrar
+    nome do form 
+    backend updateUser.php 
+
+    updateUser.php = adduser.php
+    $nome = $_POST['edita-nome']
+    mudar o comando sql
 }

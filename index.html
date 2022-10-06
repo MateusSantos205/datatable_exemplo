@@ -130,7 +130,7 @@
 
         <!-- Modal de edição de usuario -->
         <div class="modal fade" id="modal-editar-usuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar dados do usuário</h1>
@@ -138,10 +138,49 @@
                     </div>
                     <div class="modal-body">
                         <h3>Dados do usuário</h3>
+                        <!-- ////////////////////////////////////////////////////////////////////////////// -->
+                        <form id="form-usuarios-editar">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" for="edita-nome">Nome</label>
+                                    <input class="form-control" type="text" name="edita-nome" id="edita-nome">
+                                </div>
+                
+                                <div class="col">
+                                    <label class="form-label" for="edita-email">E-mail</label>
+                                    <input class="form-control" type="text" name="edita-email" id="edita-email">
+                                </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" for="edita-telefone">Telefone</label>
+                                    <input class="form-control" type="text" name="edita-telefone" id="edita-telefone">
+                                </div>
+                
+                                <div class="col">
+                                    <label class="form-label" for="edita-cpf">CPF</label>
+                                    <input class="form-control" type="text" name="edita-cpf" id="edita-cpf">
+                                </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col-md">
+                                    <label class="form-label" for="edita-senha">Senha</label>
+                                    <input class="form-control" type="edita-password" name="senha" id="edita-senha">
+                                </div>
+                                <div class="col-md">
+                                    <label class="form-label" for="edita-confirmar">Confirmar Senha</label>
+                                    <input class="form-control" type="password" name="edita-confirmar" id="edita-confirmar">
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <!-- ///////////////////////////////////////////// -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        <button type="button" class="btn btn-primary" onclick="updateUser()">Salvar Alterações</button>
                     </div>
                 </div>
             </div>
