@@ -229,15 +229,17 @@ const listUserID = (id) =>{
 
 }
 
-const updateUser = () =>{
+// const updateUser = () =>{
 
     // igual ao adduser
+    // js igual a funçao add user
+    // php igual ao adduser.php
 
-    muda do cadastrar
-    nome do form 
-    backend updateUser.php 
 
-    updateUser.php = adduser.php
-    $nome = $_POST['edita-nome']
-    mudar o comando sql
-}
+//     nome do form 
+//     backend updateUser.php 
+
+//     updateUser.php = adduser.php
+//     $nome = $_POST['edita-nome']
+//     mudar o comando sql
+// }
