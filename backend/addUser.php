@@ -4,6 +4,9 @@
 // include do arquivo de conexão
 
 include 'functions.php';
+// include do arquivo que envia o email
+include 'envia_email.php';
+
 
 try{
     // define os caracteres que serao removidosdos campos preenchidos no form (replace)
@@ -55,6 +58,9 @@ try{
         $msg = "Usuário adicionado com sucesso!";  
           
         insertUpdateDelele($sql,$msg);
+
+        // envia o email se o insert for executado
+        enviaEmail($email,$nome);   
 
           
 }catch(PDOException $erro){

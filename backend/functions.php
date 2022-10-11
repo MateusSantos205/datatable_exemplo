@@ -5,6 +5,8 @@
 
 include_once 'include/conexao.php';
 
+
+
 // define que a variavel con ser DE USO GLOBAL
 // global $con;
 
