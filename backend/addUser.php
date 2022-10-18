@@ -52,21 +52,22 @@ try{
     $salt = 
     $senha = sha1($senha); 
     
-    
         $sql = "INSERT INTO tb_login (nome, email, telefone, cpf, senha) VALUES ('$nome', '$email', '$telefone', '$cpf', '$senha')";
 
         $msg = "Usuário adicionado com sucesso!";  
           
         insertUpdateDelele($sql,$msg);
 
+        // função que gera um token para ativar a conta do usuario
+        $token = geraTokenUsuario($email);
+
         // envia o email se o insert for executado
-        enviaEmail($email,$nome);   
+        enviaEmail($email,$nome,$token);   
 
           
 }catch(PDOException $erro){
 
    pdocatch($erro);
-
 
 }
 
