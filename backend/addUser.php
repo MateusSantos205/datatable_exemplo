@@ -5,7 +5,7 @@
 
 include 'functions.php';
 // include do arquivo que envia o email
-include 'envia_email.php';
+include 'envia-email.php';
 
 
 try{
@@ -49,7 +49,7 @@ try{
     // criptografa a senha do usuario
     // alguns algoritimos de criptografar senhas = sha1, md5, password hash php
 
-    $salt = 
+    
     $senha = sha1($senha); 
     
         $sql = "INSERT INTO tb_login (nome, email, telefone, cpf, senha) VALUES ('$nome', '$email', '$telefone', '$cpf', '$senha')";

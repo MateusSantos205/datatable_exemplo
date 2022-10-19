@@ -5,7 +5,7 @@ include 'functions.php';
 try{
 
 $nome ='Mateus';
-$cusso ='Técnico em Informática';
+$curso ='Técnico em Informática';
 $periodo = 'Noite';
 
 $sql = "INSERT INTO  tb_aluno(nome,curso,periodo) VALUES ('$nome','$curso','$periodo')";

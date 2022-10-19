@@ -36,11 +36,11 @@ function enviaEmail($dest_email, $dest_nome,$token)
 
     $email_corpo = <<<EMAIL
 
-    <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Flogodownload.org%2Fwp-content%2Fuploads%2F2014%2F10%2Fsenac-logo-0.png&imgrefurl=https%3A%2F%2Flogodownload.org%2Fsenac-logo%2F&tbnid=xpnYhTO18i3ehM&vet=12ahUKEwin87TUwej6AhWNM7kGHUwLCSsQMygBegUIARDZAQ..i&docid=POUazo6KN5KeMM&w=4096&h=4096&q=senac%20logo&ved=2ahUKEwin87TUwej6AhWNM7kGHUwLCSsQMygBegUIARDZAQ" width="200px">
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmultarte.com.br%2Flogomarca-do-senac-png-transparente-com-e-sem-fundo%2F&psig=AOvVaw0FvcVU78BrsCgox7YQViVd&ust=1666221669522000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjXx5P16voCFQAAAAAdAAAAABAE" width="200px">
     
     <h1 style="margin-top:15px"> Hello $dest_nome, Welcome to te Jungle</h1>
     <p> Active your login, accessing this link below </p>
-    <a href="http:localhost/datatable-exemplo/backend/activeUser.php?token=$token">Activate Access</a>
+    <a href="http://localhost/datatable_exemplo/backend/activeUser.php?token=$token">Activate Access</a>
     <small> Esse é um email automático, não responda </small>
     <small> Em caso de dúvida, entre em contato: contato@sistema.com </small>
     
