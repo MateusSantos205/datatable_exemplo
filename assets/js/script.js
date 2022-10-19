@@ -9,12 +9,18 @@
             // inputmask - campo cpf
             $('#cpf').inputmask('999.999.999-99')
 
+            // apos o careegamento da pagina o preloader é fechado
+        FechaLoader();
+
         });
 
+        
 
 // FUNÇÃO QUE ADICIONA USUÁRIOS!!!!!!!!!!!!!!!!!!!!!
 
 const addUser = () =>{
+// ao clicar no add usuario o loader é carregado
+    AbreLoader()
 
     // valida de o nome foi preenchido, usando JQUERY   
 
@@ -46,6 +52,9 @@ const addUser = () =>{
     // a resposta foi em formato json, se foi, pega o resultado(result) e vai fazer alguma função com ele, trata o retorno ao frontend
     .then((result)=>{
         // alert(result.Mensagem), aqui é tratado o retorno ao front
+
+        // remove o loader
+        FechaLoader();
         
             Swal.fire({
             title: 'Atenção!',
@@ -227,7 +236,22 @@ const listUserID = (id) =>{
         });
 
 
+        
+
+
 }
+
+// LOADER
+const FechaLoader = () => {
+    $('.preloader').fadeOut("slow", 0);
+}
+
+const AbreLoader = () => {
+
+    $('.preloader').fadeTo("slow", 1);
+}
+
+// LOADER
 
 // const updateUser = () =>{
 
