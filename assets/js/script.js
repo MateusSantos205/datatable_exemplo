@@ -22,7 +22,7 @@ const addUser = () =>{
 // ao clicar no add usuario o loader é carregado
     AbreLoader()
 
-    // valida de o nome foi preenchido, usando JQUERY   
+    // valida se o nome foi preenchido, usando JQUERY   
 
     // let nome = $('#nome').val()
 

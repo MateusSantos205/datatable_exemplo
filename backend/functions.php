@@ -32,7 +32,7 @@ function validaCampoVazio($campo,$nomeCampo){
         echo $json;
         // encerra o script
         exit;
-        }
+    }
     
 }
 

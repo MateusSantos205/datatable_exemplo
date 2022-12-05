@@ -10,7 +10,8 @@ try{
     $comando = $conexao->prepare($sql);
 
     // executa o comando
-    $comando ->execute();
+    $comando ->execute();  
+    
 
     // variavel que ira guardar o result da execução do comando
     $retorno = $comando->fetchAll(PDO::FETCH_ASSOC);
